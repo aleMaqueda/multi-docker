@@ -1,8 +1,9 @@
 sudo: required
 services:
   - docker
-before_ install:
-  - docker build -t maqueda/react-test  -f ./client/Dockerfile.dev ./client
+
+before_install:
+  - docker build -t maqueda/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run maqueda/react-test npm test -- --coverage
