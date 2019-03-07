@@ -2,10 +2,10 @@ sudo: required
 services:
   - docker
 before_ install:
-  - docker build -t alemaqueda/multi-docker -f ./client/Dockerfile.dev ./client
+  - docker build -t maqueda/react-test  -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run alemaqueda/multi-docker npm run test -- --coverage
+  - docker run maqueda/react-test  npm run test -- --coverage
 after_success:
   - docker build -t maqueda/multi-client ./client
   - docker build -t maqueda/multi-nginx ./nginx
